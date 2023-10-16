@@ -95,12 +95,6 @@ a{
     box-sizing: border-box;
 }
 
-body {
-    font-family: sans-serif;
-    background-image: url('fundo.jpg');
-    background-size: cover;
-    background-position: center;
-}
 
 .menu__bar {
     background-color: var(--color-black);
