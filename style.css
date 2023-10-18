@@ -212,6 +212,7 @@ a{
 .imagem-center{
     margin: auto;
     text-align: center;
+    align-items: center;
 }
 .button-container {
   margin-top: 100px;
