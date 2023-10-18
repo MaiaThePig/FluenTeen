@@ -210,8 +210,9 @@ a{
 }
 
 .imagem-center{
-    margin: 0 auto;
-    width: 200px;
+    margin: auto;
+    text-align: center;
+    align-items: center;
 }
 .button-container {
   margin-top: 100px;
