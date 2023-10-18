@@ -212,10 +212,13 @@ a{
 .imagem-center{
     margin: auto;
     text-align: center;
-    display: flex;
+    display: block;
 }
 .button-container {
   margin-top: 100px;
+    align-items: center;
+    text-align: center;
+    display: flex;
 }
 
 .button {
