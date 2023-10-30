@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         resultContainer.style.display = 'block';
     }
+    });
 
   var popupLink = document.getElementById("popup-link");
   var popupWindow = document.getElementById("popup-window");
