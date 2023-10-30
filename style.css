@@ -209,7 +209,7 @@ a{
     }
 }
 
-.popup-window {
+#popup-window {
   position: fixed;
   width: 300px;
   height: 200px;
