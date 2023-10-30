@@ -42,6 +42,6 @@ document.addEventListener('DOMContentLoaded', function() {
     event.preventDefault();
     popupWindow.style.display = "block";
   });
-  closeButton.addEventListener("click", function() {
+  popupClose.addEventListener("click", function() {
     popupWindow.style.display = "none";
   });        
