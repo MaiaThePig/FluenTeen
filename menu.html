@@ -1,20 +1,64 @@
 <html lang="pt-br">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="style.css">
-        <title>FluenTeen</title>
-    </head>
-    <body>
-        <div class="menu__bar">
-            <h1 class="logo">Fluen<span>Teen</span></h1>
-            <ul>
-                <li><a href="#">Início</a></li>
-                <li><a href="#about">Sobre</a></li>
-                <li><a href="#contact">Contato</a></li>
-                <li><a href="#help">Ajuda</a></li>
-                <li><a href="#privacy">Política de Privacidade</a></li>
-            </ul>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <title>FluenTeen</title>
+  </head>
+  <body>
+    <div class="menu__bar">
+      <h1 class="logo">Fluen<span>Teen</span></h1>
+      <button onclick="openModal('modal1')">Sobre</button>
+      <button onclick="openModal('modal2')">Contato</button>
+      <button onclick="openModal('modal3')">Ajuda</button>
+      <button onclick="openModal('modal4')">Politica de Privacidade</button>
+        <div id="modal1" class="modal">
+          <div class="modal-content">
+          <span class="close">&times;</span>
+          <p>FluenTeen é uma plataforma para o aprendizado e melhora da lingua inglesa de uma forma interativa.</p>
+          </div>
         </div>
-    </body>
+
+        <div id="modal2" class="modal">
+          <div class="modal-content">
+          <span class="close">&times;</span>
+          <p>Email de contato: contato@fluenteen.edu.br</p>
+          <p>Telefone de contato: +55 (34) 99989-2811</p>
+          </div>
+        </div>
+
+        <div id="modal3" class="modal">
+          <div class="modal-content">
+          <span class="close">&times;</span>
+          <p>
+            ajuda
+          </p>
+          </div>
+        </div>
+
+        <div id="modal4" class="modal">
+          <div class="modal-content">
+          <span class="close">&times;</span>
+<p>
+A sua privacidade é importante para nós. É política do FluenTeen respeitar a sua privacidade em relação a qualquer informação sua que possamos coletar no site FluenTeen, e outros sites que possuímos e operamos.
+</p>
+<p><br>
+Solicitamos informações pessoais apenas quando realmente precisamos delas para lhe fornecer um serviço. Fazemo-lo por meios justos e legais, com o seu conhecimento e consentimento. Também informamos por que estamos coletando e como será usado.
+</p>
+<p><br>
+Apenas retemos as informações coletadas pelo tempo necessário para fornecer o serviço solicitado. Quando armazenamos dados, protegemos dentro de meios comercialmente aceitáveis ​​para evitar perdas e roubos, bem como acesso, divulgação, cópia, uso ou modificação não autorizados.
+</p>
+<p><br>
+Não compartilhamos informações de identificação pessoal publicamente ou com terceiros, exceto quando exigido por lei.
+</p>
+<p><br>
+Você é livre para recusar a nossa solicitação de informações pessoais, entendendo que talvez não possamos fornecer alguns dos serviços desejados.
+</p>
+<p><br>
+O uso continuado de nosso site será considerado como aceitação de nossas práticas em torno de privacidade e informações pessoais. Se você tiver alguma dúvida sobre como lidamos com dados do usuário e informações pessoais, entre em contacto connosco.
+</p>
+          </div>
+        </div>
+    </div>
+  </body>
 </html>
