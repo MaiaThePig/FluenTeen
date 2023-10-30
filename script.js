@@ -34,14 +34,3 @@ document.addEventListener('DOMContentLoaded', function() {
         resultContainer.style.display = 'block';
     }
     });
-
-  var popupLink = document.getElementById("popup-link");
-  var popupWindow = document.getElementById("popup-window");
-  var popupClose = document.getElementById("popup-close");
-  popupLink.addEventListener("click", function(event) {
-    event.preventDefault();
-    popupWindow.style.display = "block";
-  });
-  popupClose.addEventListener("click", function() {
-    popupWindow.style.display = "none";
-  });        
