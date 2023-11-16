@@ -136,6 +136,19 @@ a{
     color: var(--color-primary);
 }
 
+.nav_itens {
+  background-color: var(--color-black);
+    border: none;
+    color: var(--color-white);
+    padding: 15px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    font-style: bold;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+}
+
 .container {
     background-color: rgba(255, 255, 255, 0.8); /* Fundo branco semi-transparente */
     padding: 30px;
