@@ -115,38 +115,21 @@ a{
     color: var(--color-primary);
 }
 
-.menu__bar ul {
-    list-style: none;
-    display: flex;
-}
-
-.menu__bar ul li {
-    padding: 10px 30px;
-}
-
-.menu__bar ul li a {
-    color: var(--color-white);
-    text-decoration: none;
-    font-size: 20px;
-
-    transition: all 0.3s;
-}
-
-.menu__bar ul li a:hover {
-    color: var(--color-primary);
-}
-
-.nav_itens {
-  background-color: var(--color-black);
+.button{
+    background-color: var(--color-black);
     border: none;
     color: var(--color-white);
-    padding: 15px 15px;
+    padding: 10px 30px;
     text-align: center;
     text-decoration: none;
-    font-size: 15px;
+    font-size: 18px;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.5s ease;
+}
+
+.button:hover {
+    color: var(--color-primary);
+    transition: all 0.5s;
 }
 
 .container {
