@@ -252,6 +252,7 @@ a{
     justify-content: center;
     flex-wrap: wrap;
     padding: 50px 0;
+    background-color: rgba(50,50,50,0.8);
 }
 
 .cosmetic-item {
