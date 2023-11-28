@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="assets/style.css">
+<title>Fantasy Cosmetic Shop</title>
+</head>
+<body>
+<header class="header">
+    <h1>Fantasy Cosmetic Shop</h1>
+    <p>Bem vindo, <b><%= user.username %></b></p>
+    <p>Dinheiro Disponível: <span id="currentMoney"><%= user.coins %></span> Moedas</p>
+</header>
+<div class="cosmetic-container">
+    <% for(let x = 0; x < items.length; x++){ %>
+        <% const {path, name, description, price, _id} = items[x] %>
+
+        <div class="cosmetic-item">
+            <img src="src/<%= path %>" alt="<%= name %>"/>
+            <h2><%= name %></h2>
+            <br>
+            <p><%= description %></p>
+            <br>
+            <p>Preço: <%= price %> moedas</p>
+            <br>
+            <button class="buy-btn" onclick="buyItem('<%= _id %>')">Comprar</button>
+        </div>
+    <% } %>
+
+</div>
+<footer class="footer">
+    <a href="/home">Página Principal</a>
+</footer>
+<script src="assets/shop.js"></script>
+</body>
+</html>

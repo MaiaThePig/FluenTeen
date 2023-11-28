@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/style.css"> <!-- Adiciona o link para o arquivo CSS --> 
+    <title>Quiz Fantástico</title>
+</head>
+<body>
+    <div class="container">
+        <div class="question">
+            <h1>Random Question</h1>
+            <p><%- question %></p>
+            <% for(let x = 0; x < options.length; x++){ %>
+                 <button class="option" correct="<%= options[x].correct %>"><%= options[x].content %></button>
+            <% } %>
+        </div>
+        <div class="result" style="display:none; text-align: center;">
+            <h1 style="color: black;" id="result-message"></h1>
+            <button class="try-again">Tentar Novamente</button>
+        </div>
+    </div>
+</body>
+<script src="assets/quiz.js"></script>
