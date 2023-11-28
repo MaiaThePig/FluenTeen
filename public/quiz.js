@@ -102,7 +102,7 @@ export default {
       return;
     }
 
-    const chosenAnswer = Math.round(Math.random() * questions.length - 1)
+    const chosenAnswer = Math.floor(Math.random() * questions.length);
 
     res.render("quiz", questions[chosenAnswer]);
   }
