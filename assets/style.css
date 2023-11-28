@@ -155,13 +155,13 @@ a{
 .question h1 {
     font-size: 32px;
     margin-bottom: 20px;
-    color: #0000FF; /* Cor azul */
+    color: #FFFFFF;
 }
 
 .question p {
     font-size: 24px;
     margin-bottom: 30px;
-    color: #0000FF; /* Cor azul */
+    color: #FFFFFF;
 }
 
 .option {
@@ -170,7 +170,7 @@ a{
     padding: 15px;
     margin: 10px 0;
     font-size: 20px;
-    background-color: #FF69B4; /* Cor rosa médio para os botões */
+    background-color: #BFDDF3;
     color: #fff;
     border: none;
     border-radius: 8px;
