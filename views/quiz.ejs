@@ -63,18 +63,18 @@
   <div class="flex-c">
   <div class="container" style="margin: auto;">
       <div class="question">
-          <h1>Random Question</h1>
-          <p>Escolha a definição correta para 'splendid'.</p>
-          
-               <button class="option" correct="false">Comum e sem brilho</button>
-          
-               <button class="option" correct="true">Magnífico e grandioso</button>
-          
-               <button class="option" correct="false">Triste e melancólico</button>
-          
-               <button class="option" correct="false">Simples e modesto</button>
-          
-      </div>
+          <div class="avatar">
+            <% if(currentItem){%>
+              <img src="src/<%= currentItem.path %>" class="item-avatar">
+            <% } %>
+
+            <img src="assets/avatar.png" width="200px" height="200px"><p></p>
+          </div>
+                <h1>Random Question</h1>
+                <p><%- question.question %></p>
+                <% for(let x = 0; x < question.options.length; x++){ %>
+                 <button class="option" correct="<%= question.options[x].correct %>"><%= question.options[x].content %></button>
+                <% } %>
       <div class="result" style="display:none; text-align: center;">
           <h1 style="color: black;" id="result-message"></h1>
           <button class="try-again">Tentar Novamente</button>
