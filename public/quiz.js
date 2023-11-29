@@ -1,4 +1,5 @@
-import {verifyToken} from "../auth.js";
+import { models } from "../db/client.js";
+import {decodeToken, verifyToken} from "../auth.js";
 
 const questions = [
   {
@@ -94,7 +95,7 @@ const questions = [
 ];
 export default {
   path: "/quiz",
-  cb: (req, res) =>{
+  cb: async (req, res) =>{
     const cookies = req.cookies;
     const token = cookies.token;
     if(!verifyToken(token)){
@@ -102,8 +103,12 @@ export default {
       return;
     }
 
+    const {id} = decodeToken(token).data;
+    const {User} = models;
+    const currentUser = await User.findById(id);
+
     const chosenAnswer = Math.floor(Math.random() * questions.length);
 
-    res.render("quiz", questions[chosenAnswer]);
+    res.render("quiz", {question: questions[chosenAnswer], currentItem: currentUser.currentItem});
   }
 }
