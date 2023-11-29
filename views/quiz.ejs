@@ -7,21 +7,23 @@
     <title>Quiz Fantástico</title>
 </head>
 <body>
-    <div class="container">
-        <div class="question">
-            <h1>Random Question</h1>
-            <p><%- question %></p>
-            <% for(let x = 0; x < options.length; x++){ %>
+    <div class="flex-c">
+        <div class="container">
+            <div class="question">
+                <h1>Random Question</h1>
+                <p><%- question %></p>
+                <% for(let x = 0; x < options.length; x++){ %>
                  <button class="option" correct="<%= options[x].correct %>"><%= options[x].content %></button>
-            <% } %>
+                <% } %>
+            </div>
+            <div class="result" style="display:none; text-align: center;">
+                <h1 style="color: black;" id="result-message"></h1>
+                <button class="try-again">Tentar Novamente</button>
+            </div>
+            <footer class="footer">
+                <a href="/home">Página Principal</a>
+            </footer>
         </div>
-        <div class="result" style="display:none; text-align: center;">
-            <h1 style="color: black;" id="result-message"></h1>
-            <button class="try-again">Tentar Novamente</button>
-        </div>
-        <footer class="footer">
-            <a href="/home">Página Principal</a>
-        </footer>
     </div>
 </body>
 <script src="assets/quiz.js"></script>
