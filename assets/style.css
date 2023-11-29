@@ -138,6 +138,10 @@ a{
     transition: all 0.5s;
 }
 
+  .flex-c {
+    display: flex;
+  }
+
 .container {
     background-color: rgba(50, 50, 50, 0.8);
     padding: 30px;
