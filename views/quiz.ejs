@@ -1,29 +1,89 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/style.css"> <!-- Adiciona o link para o arquivo CSS --> 
-    <title>Quiz Fantástico</title>
+<html lang="pt-br"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/style.css"> <!-- Adiciona o link para o arquivo CSS --> 
+  <title>Quiz Fantástico</title>
 </head>
 <body>
-    <div class="flex-c">
-        <div class="container">
-            <div class="question">
-                <h1>Random Question</h1>
-                <p><%- question %></p>
-                <% for(let x = 0; x < options.length; x++){ %>
-                 <button class="option" correct="<%= options[x].correct %>"><%= options[x].content %></button>
-                <% } %>
-            </div>
-            <div class="result" style="display:none; text-align: center;">
-                <h1 style="color: black;" id="result-message"></h1>
-                <button class="try-again">Tentar Novamente</button>
-            </div>
-            <footer class="footer">
-                <a href="/home">Página Principal</a>
-            </footer>
+  <div class="menu__bar">
+    <h1 class="logo">Fluen<span>Teen</span></h1>
+    <button class="button" onclick="openModal('modal1')">Sobre</button>
+    <button class="button" onclick="openModal('modal2')">Contato</button>
+    <button class="button" onclick="openModal('modal3')">Ajuda</button>
+    <button class="button" onclick="openModal('modal4')">Politica de Privacidade</button>
+      <div id="modal1" class="modal">
+        <div class="modal-content">
+        <span class="close">×</span>
+        <p>FluenTeen é uma plataforma para o aprendizado e melhora da lingua inglesa de uma forma interativa.</p>
         </div>
-    </div>
-</body>
+      </div>
+  
+      <div id="modal2" class="modal">
+        <div class="modal-content">
+        <span class="close">×</span>
+        <p>Email de contato: contato@fluenteen.edu.br</p>
+        <p>Telefone de contato: +55 (34) 99989-2811</p>
+        </div>
+      </div>
+  
+      <div id="modal3" class="modal">
+        <div class="modal-content">
+        <span class="close">×</span>
+        <p>
+          suporte@fluenteen.edu.br
+        </p>
+        </div>
+      </div>
+  
+      <div id="modal4" class="modal">
+        <div class="modal-content">
+        <span class="close">×</span>
+  <p>
+  A sua privacidade é importante para nós. É política do FluenTeen respeitar a sua privacidade em relação a qualquer informação sua que possamos coletar no site FluenTeen, e outros sites que possuímos e operamos.
+  </p>
+  <p><br>
+  Solicitamos informações pessoais apenas quando realmente precisamos delas para lhe fornecer um serviço. Fazemo-lo por meios justos e legais, com o seu conhecimento e consentimento. Também informamos por que estamos coletando e como será usado.
+  </p>
+  <p><br>
+  Apenas retemos as informações coletadas pelo tempo necessário para fornecer o serviço solicitado. Quando armazenamos dados, protegemos dentro de meios comercialmente aceitáveis ​​para evitar perdas e roubos, bem como acesso, divulgação, cópia, uso ou modificação não autorizados.
+  </p>
+  <p><br>
+  Não compartilhamos informações de identificação pessoal publicamente ou com terceiros, exceto quando exigido por lei.
+  </p>
+  <p><br>
+  Você é livre para recusar a nossa solicitação de informações pessoais, entendendo que talvez não possamos fornecer alguns dos serviços desejados.
+  </p>
+  <p><br>
+  O uso continuado de nosso site será considerado como aceitação de nossas práticas em torno de privacidade e informações pessoais. Se você tiver alguma dúvida sobre como lidamos com dados do usuário e informações pessoais, entre em contacto connosco.
+  </p>
+        </div>
+      </div>
+  </div>
+  <div class="flex-c">
+  <div class="container" style="margin: auto;">
+      <div class="question">
+          <h1>Random Question</h1>
+          <p>Escolha a definição correta para 'splendid'.</p>
+          
+               <button class="option" correct="false">Comum e sem brilho</button>
+          
+               <button class="option" correct="true">Magnífico e grandioso</button>
+          
+               <button class="option" correct="false">Triste e melancólico</button>
+          
+               <button class="option" correct="false">Simples e modesto</button>
+          
+      </div>
+      <div class="result" style="display:none; text-align: center;">
+          <h1 style="color: black;" id="result-message"></h1>
+          <button class="try-again">Tentar Novamente</button>
+      </div>
+      <footer class="footer">
+          <a href="/home">Página Principal</a>
+      </footer>
+  </div>
+</div>
+
 <script src="assets/quiz.js"></script>
+<style type="text/css"></style></body><style type="text/css"></style></html>
