@@ -6,9 +6,8 @@ const resultText = document.querySelector("#result-message");
 const options = document.querySelectorAll(".option");
 
 options.forEach(option => {
-    const isCorrect = option.getAttribute("correct");
 
-    option.addEventListener("click", _ => {
+    option.addEventListener("click", async _ => {
         if(hasPlayed){
             return;
         }
@@ -16,14 +15,27 @@ options.forEach(option => {
         hasPlayed = true;
         resultWrapper.style.display = "block";
 
-        if(isCorrect == "true"){
-            resultText.innerHTML = "Parabéns! Você <b style='color: green;'>acertou!</b> Gostaria de jogar novamente?"
-            return;
+        const questionID = location.pathname.split("/")[2];
+        const answer = option.getAttribute("index");
+        const data = {
+            questionID,
+            answer
         }
-        resultText.innerHTML = "Você <b style='color: red;'>errou!</b> Gostaria de jogar novamente?"
+
+        const req = await fetch("/quiz", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({data})
+        })
+
+        const res = await req.json();
+
+        resultText.innerHTML = res.message;
     })
 })
 
 const retry = document.querySelector(".try-again");
 
-retry.addEventListener("click", _ => location.reload())
+retry.addEventListener("click", _ => location.assign("/quiz"))

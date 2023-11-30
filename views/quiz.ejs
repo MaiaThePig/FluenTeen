@@ -2,7 +2,7 @@
 <html lang="pt-br"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="assets/style.css"> <!-- Adiciona o link para o arquivo CSS --> 
+  <link rel="stylesheet" href="/assets/style.css"> <!-- Adiciona o link para o arquivo CSS --> 
   <title>Quiz Fantástico</title>
 </head>
 <body>
@@ -68,12 +68,12 @@
               <img src="src/<%= currentItem.path %>" class="item-avatar">
             <% } %>
 
-            <img src="assets/avatar.png" width="200px" height="200px"><p></p>
+            <img src="/assets/avatar.png" width="200px" height="200px"><p></p>
           </div>
                 <h1>Random Question</h1>
                 <p><%- question.question %></p>
                 <% for(let x = 0; x < question.options.length; x++){ %>
-                 <button class="option" correct="<%= question.options[x].correct %>"><%= question.options[x].content %></button>
+                 <button class="option" index="<%= x %>"><%= question.options[x].content %></button>
                 <% } %>
       <div class="result" style="display:none; text-align: center;">
           <h3 style="color: white;" id="result-message"></h3>
@@ -85,5 +85,6 @@
   </div>
 </div>
 
-<script src="assets/quiz.js"></script>
+<script src="/assets/quiz.js"></script>
+<script src="/assets/modal.js"></script>
 <style type="text/css"></style></body><style type="text/css"></style></html>

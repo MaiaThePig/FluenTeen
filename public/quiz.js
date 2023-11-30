@@ -1,98 +1,110 @@
 import { models } from "../db/client.js";
+import {createQuestion, checkQuestion} from "../quiz.js";
 import {decodeToken, verifyToken} from "../auth.js";
 
 const questions = [
   {
     question: "Qual é o significado da palavra 'meticulous'?",
     options: [
-      { content: "Despreocupado", correct: false },
-      { content: "Cuidadoso e minucioso", correct: true },
-      { content: "Agressivo", correct: false },
-      { content: "Indiferente", correct: false },
+      { content: "Indiferente" },
+      { content: "Despreocupado" },
+      { content: "Cuidadoso e minucioso" },
+      { content: "Agressivo" },
     ],
+    correctIndex: 2,
   },
   {
     question: "O que significa a palavra 'ephemeral'?",
     options: [
-      { content: "Permanente e duradouro", correct: false },
-      { content: "Curto e passageiro", correct: true },
-      { content: "Brilhante e intenso", correct: false },
-      { content: "Frágil e delicado", correct: false },
+      { content: "Brilhante e intenso" },
+      { content: "Curto e passageiro" },
+      { content: "Permanente e duradouro" },
+      { content: "Frágil e delicado" },
     ],
+    correctIndex: 1,
   },
   {
     question: "Como você definiria a palavra 'ubiquitous'?",
     options: [
-      { content: "Raro e difícil de encontrar", correct: false },
-      { content: "Presente, aparecendo ou encontrado em todos os lugares", correct: true },
-      { content: "Barulhento e disruptivo", correct: false },
-      { content: "Limitado a um local específico", correct: false },
+      { content: "Barulhento e disruptivo" },
+      { content: "Raro e difícil de encontrar" },
+      { content: "Limitado a um local específico" },
+      { content: "Presente, aparecendo ou encontrado em todos os lugares" },
     ],
+    correctIndex: 3,
   },
   {
     question: "Escolha a definição correta para 'alacrity'.",
     options: [
-      { content: "Tristeza extrema ou melancolia", correct: false },
-      { content: "Prontidão entusiástica e alegre", correct: true },
-      { content: "Teimosia e resistência", correct: false },
-      { content: "Confusão e desorientação", correct: false },
+      { content: "Prontidão entusiástica e alegre" },
+      { content: "Confusão e desorientação" },
+      { content: "Tristeza extrema ou melancolia" },
+      { content: "Teimosia e resistência" },
     ],
+    correctIndex: 0,
   },
   {
     question: "Qual é o significado da palavra 'querulous'?",
     options: [
-      { content: "Expressando gratidão e apreço", correct: false },
-      { content: "Reclamando de maneira lamentosa", correct: true },
-      { content: "Calmo e composto", correct: false },
-      { content: "Audacioso e assertivo", correct: false },
+      { content: "Calmo e composto" },
+      { content: "Expressando gratidão e apreço" },
+      { content: "Audacioso e assertivo" },
+      { content: "Reclamando de maneira lamentosa" },
     ],
+    correctIndex: 3,
   },
   {
     question: "O termo 'effusive' significa:",
     options: [
-      { content: "Reservado e contido", correct: false },
-      { content: "Expressando sentimentos de maneira entusiástica", correct: true },
-      { content: "Desinteressado e apático", correct: false },
-      { content: "Disciplinado e focado", correct: false },
+      { content: "Expressando sentimentos de maneira entusiástica" },
+      { content: "Reservado e contido" },
+      { content: "Desinteressado e apático" },
+      { content: "Disciplinado e focado" },
     ],
+    correctIndex: 0,
   },
   {
     question: "Como você definiria 'effervescent'?",
     options: [
-      { content: "Tranquilo e sereno", correct: false },
-      { content: "Borbulhante e enérgico", correct: true },
-      { content: "Cauteloso e hesitante", correct: false },
-      { content: "Desordenado e caótico", correct: false },
+      { content: "Desordenado e caótico" },
+      { content: "Tranquilo e sereno" },
+      { content: "Borbulhante e enérgico" },
+      { content: "Cauteloso e hesitante" },
     ],
+    correctIndex: 2,
   },
   {
     question: "O que significa 'efficacious'?",
     options: [
-      { content: "Ineficiente e fraco", correct: false },
-      { content: "Capaz de produzir resultados desejados", correct: true },
-      { content: "Rápido e impulsivo", correct: false },
-      { content: "Desonesto e enganador", correct: false },
+      { content: "Capaz de produzir resultados desejados" },
+      { content: "Ineficiente e fraco" },
+      { content: "Desonesto e enganador" },
+      { content: "Rápido e impulsivo" },
     ],
+    correctIndex: 0,
   },
   {
     question: "Escolha a definição correta para 'splendid'.",
     options: [
-      { content: "Comum e sem brilho", correct: false },
-      { content: "Magnífico e grandioso", correct: true },
-      { content: "Triste e melancólico", correct: false },
-      { content: "Simples e modesto", correct: false },
+      { content: "Simples e modesto" },
+      { content: "Magnífico e grandioso" },
+      { content: "Triste e melancólico" },
+      { content: "Comum e sem brilho" },
     ],
+    correctIndex: 1,
   },
   {
     question: "O que significa 'procrastinate'?",
     options: [
-      { content: "Realizar tarefas imediatamente", correct: false },
-      { content: "Adiar ou atrasar tarefas", correct: true },
-      { content: "Trabalhar diligentemente", correct: false },
-      { content: "Ser eficiente e produtivo", correct: false },
+      { content: "Realizar tarefas imediatamente" },
+      { content: "Adiar ou atrasar tarefas" },
+      { content: "Trabalhar diligentemente" },
+      { content: "Ser eficiente e produtivo" },
     ],
+    correctIndex: 1,
   },
 ];
+
 export default {
   path: "/quiz",
   cb: async (req, res) =>{
@@ -103,12 +115,21 @@ export default {
       return;
     }
 
+    // /quiz/{id}
+    const quizID = req.path.split("/")[2];
+    const question = checkQuestion(quizID);
+
+    if(!question){
+      const chosenQuestion = questions[Math.floor(Math.random() * questions.length)];
+      const newID = createQuestion(chosenQuestion);
+
+      return res.redirect(`/quiz/${newID}`);
+    }
+
     const {id} = decodeToken(token).data;
     const {User} = models;
     const currentUser = await User.findById(id);
 
-    const chosenAnswer = Math.floor(Math.random() * questions.length);
-
-    res.render("quiz", {question: questions[chosenAnswer], currentItem: currentUser.currentItem});
+    res.render("quiz", {question, currentItem: currentUser.currentItem});
   }
 }
